@@ -1,0 +1,12 @@
+name: dev
+on:
+  push:
+    branches:
+      - dev
+      - pre-dev
+
+jobs:
+  test:
+    uses: ./.github/workflows/_test.yml
+    with:
+      target: ${{ github.ref }}

@@ -1,0 +1,20 @@
+name: _test
+on:
+  workflow_call:
+    inputs:
+      target:
+        required: true
+        type: string
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: echo target
+        run: echo ${{inputs.target}}
+      - name: echo branch
+        run: echo ${{ github.ref }}
+      - name: echo run
+        run: echo "$(cat hello_world.txt)"

@@ -1,0 +1,17 @@
+name: pro
+on:
+  workflow_dispatch:
+    inputs:
+      target:
+        type: choice
+        description: Deploy target
+        required: true
+        options:
+          - pre-pro
+          - pro
+          - all
+jobs:
+  test:
+    uses: ./.github/workflows/_test.yml
+    with:
+      target: ${{ github.event.inputs.target }}
