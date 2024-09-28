@@ -12,7 +12,7 @@ on:
           - all
 jobs:
   test:
-    if: github.ref_name == '^release/.*' || github.ref_name == 'pre-stg'
+    if: github.ref_name == 'release/**' || github.ref_name == 'pre-stg'
     uses: ./.github/workflows/_test.yml
     with:
       target: ${{ github.event.inputs.target }}
