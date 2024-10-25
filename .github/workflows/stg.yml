@@ -12,6 +12,8 @@ on:
           - all
 jobs:
   test:
+    if: github.ref_name == 'pre-stg'
+    if: startsWith(github.ref_name, 'release_step_')
     uses: ./.github/workflows/_test.yml
     with:
       target: ${{ github.event.inputs.target }}
